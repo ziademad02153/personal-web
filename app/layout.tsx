@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     "Full Stack Developer, مطور متكامل, Software Engineer, React, Node.js, AI Tools, Portfolio, Egypt, Data Analysis, Software Testing",
   authors: [{ name: "Ziad Emad Allam" }],
   creator: "Ziad Emad Allam",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   openGraph: {
     title: "Ziad Emad Allam - Full Stack Developer | مطور متكامل",
     description: "Professional Full Stack Developer with expertise in modern web technologies, software testing, and AI integration",
@@ -58,6 +57,12 @@ export const metadata: Metadata = {
   generator: "Next.js",
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,7 +74,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${poppins.variable} ${robotoMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="font-sans">
+      <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

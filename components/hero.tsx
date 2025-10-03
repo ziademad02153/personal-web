@@ -105,7 +105,7 @@ export default function Hero() {
                       asChild
                     >
                       <a
-                        href="https://drive.google.com/file/d/1qUq7fWuh4UUVYX0Gm0Mu-jmacuVc6bGi/view?usp=drivesdk"
+                        href="https://drive.google.com/file/d/1mXMTqH7qOJhba9d-Kg__TjBSHCbYVxM_/view?usp=drivesdk"
                         target="_blank"
                         rel="noreferrer"
                       >
