@@ -103,11 +103,11 @@ export default function Skills() {
     selectedCategory === "All" ? skillCategories : skillCategories.filter((cat) => cat.name === selectedCategory)
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-mono">Technical Skills</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-animated font-mono">Technical Skills</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive expertise across modern technologies and development practices
             </p>
@@ -120,7 +120,7 @@ export default function Skills() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-200 glass-card"
+                className="transition-all duration-200 glass-card-enhanced hover-lift hover:scale-105"
               >
                 {category}
               </Button>
@@ -130,7 +130,7 @@ export default function Skills() {
           {/* Technical Skills */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {filteredCategories.map((category, index) => (
-              <Card key={index} className="animate-fade-in-up hover:shadow-lg transition-all duration-300 glass-card">
+              <Card key={index} className="animate-fade-in-up hover:shadow-lg transition-all duration-300 glass-card-enhanced hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-primary">
                     {category.icon}
@@ -155,7 +155,7 @@ export default function Skills() {
           </div>
 
           {/* Personal Skills */}
-          <Card className="animate-fade-in-up glass-card">
+          <Card className="animate-fade-in-up glass-card-enhanced hover-lift">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-primary text-center justify-center">
                 <Palette className="h-5 w-5" />
@@ -165,7 +165,7 @@ export default function Skills() {
             <CardContent>
               <div className="flex flex-wrap justify-center gap-3">
                 {personalSkills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="text-sm py-2 px-4 glass-card">
+                  <Badge key={index} variant="secondary" className="text-sm py-2 px-4 glass-card-enhanced hover-lift">
                     {skill}
                   </Badge>
                 ))}

@@ -102,7 +102,7 @@ export default function Projects() {
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-animated font-poppins">Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-inter">
             Showcasing innovative solutions and technical expertise
             </p>
@@ -110,7 +110,7 @@ export default function Projects() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="glass-card group hover:shadow-2xl transition-all duration-500">
+            <div key={index} className="glass-card-enhanced group hover:shadow-2xl transition-all duration-500 hover-lift">
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <project.icon className="h-6 w-6 text-blue-400" />

@@ -2,18 +2,26 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Rocket } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    let ticking = false
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -38,21 +46,18 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg"
+          ? "bg-black/30 backdrop-blur-md border-b border-white/10 shadow-lg"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-lg border border-white/20">
-              <Rocket className="text-white h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <span className="text-white font-semibold text-lg sm:text-xl hidden sm:block">
-              Ziad Emad Allam
-            </span>
-          </div>
+          {/* Logo - ZEA */}
+              <a href="#home" className="cursor-pointer group">
+                <span className="font-bold text-2xl sm:text-3xl tracking-wider gradient-text-animated group-hover:scale-110 transition-transform duration-300">
+                  ZEA
+                </span>
+              </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -60,7 +65,7 @@ export default function Header() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-white/80 hover:text-white transition-colors duration-200 font-medium relative group"
+                    className="text-white/80 hover:text-white transition-colors duration-200 font-medium relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
@@ -70,14 +75,14 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              className="glass-card border-white/30 hover:border-white/50 text-white bg-transparent hover:bg-white/10"
-              asChild
-            >
-              <a href="#contact">Get In Touch</a>
-            </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="glass-card-enhanced border-white/30 hover:border-white/50 text-white bg-transparent hover:bg-white/10 transition-all duration-300"
+                  asChild
+                >
+                  <a href="#contact">Get In Touch</a>
+                </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,7 +91,7 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:bg-white/10"
+                  className="text-white hover:bg-white/10 transition-all duration-300 glass-card-enhanced"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -95,8 +100,8 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/20 backdrop-blur-md rounded-lg border border-white/10 mt-2">
+            <div className="md:hidden">
+                <div className="px-2 pt-2 pb-3 space-y-1 glass-card-enhanced rounded-lg border border-white/10 mt-2 backdrop-blur-md">
               {navItems.map((item) => (
                 <button
                   key={item.href}
@@ -107,14 +112,14 @@ export default function Header() {
                 </button>
               ))}
               <div className="pt-2 border-t border-white/10">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full glass-card border-white/30 hover:border-white/50 text-white bg-transparent hover:bg-white/10"
-                  asChild
-                >
-                  <a href="#contact">Get In Touch</a>
-                </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full glass-card-enhanced border-white/30 hover:border-white/50 text-white bg-transparent hover:bg-white/10 transition-all duration-300"
+                      asChild
+                    >
+                      <a href="#contact">Get In Touch</a>
+                    </Button>
               </div>
             </div>
           </div>

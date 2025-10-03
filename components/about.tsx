@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white font-poppins">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-animated font-poppins">About Me</h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto font-inter">
             Results-driven professional skilled in end-to-end web development, rigorous software testing, and AI-powered automation
           </p>
@@ -15,7 +15,7 @@ export default function About() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Personal Information */}
-          <div className="glass-card p-8">
+          <div className="glass-card-enhanced p-8 hover-lift">
             <h3 className="text-xl font-bold mb-6 text-white font-poppins">Personal Information</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -42,7 +42,7 @@ export default function About() {
           </div>
 
           {/* Contact Information */}
-          <div className="glass-card p-8">
+          <div className="glass-card-enhanced p-8 hover-lift">
             <h3 className="text-xl font-bold mb-6 text-white font-poppins">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export default function About() {
 
         {/* Professional Summary */}
         <div className="mt-12">
-          <div className="glass-card p-8">
+          <div className="glass-card-enhanced p-8 hover-lift">
             <h3 className="text-xl font-bold mb-6 text-white text-center font-poppins">Professional Summary</h3>
             <p className="text-center leading-relaxed text-white/80 font-inter">
               Expert in designing robust systems, identifying critical bugs, and enhancing processes with intelligent tools. 
@@ -88,7 +88,7 @@ export default function About() {
 
         {/* Key Skills */}
         <div className="mt-12">
-          <div className="glass-card p-8">
+          <div className="glass-card-enhanced p-8 hover-lift">
             <h3 className="text-xl font-bold mb-6 text-white font-poppins">Key Skills</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>

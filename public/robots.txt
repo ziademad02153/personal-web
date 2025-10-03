@@ -1,0 +1,8 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ziad-emad-allam.vercel.app/sitemap.xml
+
+

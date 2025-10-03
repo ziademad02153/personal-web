@@ -262,11 +262,11 @@ export default function Certificates() {
   }
 
   return (
-    <section id="certificates" className="py-20 bg-muted/30">
+    <section id="certificates" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-mono">Certificates & Achievements</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-animated font-mono">Certificates & Achievements</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Continuous learning and professional development across diverse technologies
             </p>
@@ -279,7 +279,7 @@ export default function Certificates() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-200"
+                className="transition-all duration-200 glass-card-enhanced hover-lift hover:scale-105"
               >
                 {category}
               </Button>
@@ -289,7 +289,7 @@ export default function Certificates() {
           {/* Certificates Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCertificates.map((cert, index) => (
-              <Card key={index} className="animate-fade-in-up hover:shadow-lg transition-all duration-300 group">
+              <Card key={index} className="animate-fade-in-up hover:shadow-lg transition-all duration-300 group glass-card-enhanced hover-lift">
                 <CardHeader>
                   <div className="flex items-start gap-3">
                     <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">

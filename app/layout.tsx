@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk, JetBrains_Mono, Poppins, Roboto_Mono } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import StructuredData from "@/components/structured-data"
 import "./globals.css"
 
 const inter = Inter({
@@ -36,25 +37,49 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Ziad Emad Allam - Full Stack Developer | مطور متكامل",
+  title: {
+    default: "Ziad Emad Allam - Full Stack Developer",
+    template: "%s | Ziad Emad Allam"
+  },
   description:
     "Professional Full Stack Developer with expertise in modern web technologies, software testing, and AI integration. Specialized in creating innovative solutions and delivering high-quality software.",
   keywords:
-    "Full Stack Developer, مطور متكامل, Software Engineer, React, Node.js, AI Tools, Portfolio, Egypt, Data Analysis, Software Testing",
-  authors: [{ name: "Ziad Emad Allam" }],
+    "Full Stack Developer, Software Engineer, React, Node.js, TypeScript, MongoDB, AI Tools, Portfolio, Egypt, Data Analysis, Software Testing, Web Development, JavaScript, Python",
+  authors: [{ name: "Ziad Emad Allam", url: "https://ziad-emad-allam.vercel.app" }],
   creator: "Ziad Emad Allam",
+  publisher: "Ziad Emad Allam",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Ziad Emad Allam - Full Stack Developer | مطور متكامل",
+    title: "Ziad Emad Allam - Full Stack Developer",
     description: "Professional Full Stack Developer with expertise in modern web technologies, software testing, and AI integration",
     type: "website",
     locale: "en_US",
+    url: "https://ziad-emad-allam.vercel.app",
+    siteName: "Ziad Emad Allam Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ziad Emad Allam - Full Stack Developer | مطور متكامل",
+    title: "Ziad Emad Allam - Full Stack Developer",
     description: "Professional Full Stack Developer with expertise in modern web technologies, software testing, and AI integration",
+    creator: "@ziademad",
   },
-  generator: "Next.js",
+  verification: {
+    google: "google-site-verification-code",
+  },
+  alternates: {
+    canonical: "https://ziad-emad-allam.vercel.app",
+  },
+  category: 'technology',
 }
 
 export const viewport = {
@@ -75,6 +100,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans" suppressHydrationWarning>
+        <StructuredData />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

@@ -108,11 +108,11 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-mono">Get In Touch</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-animated font-mono">Get In Touch</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ready to collaborate on your next project? Let's discuss how we can work together
             </p>
@@ -121,7 +121,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
-              <Card className="animate-slide-in-left glass-card">
+              <Card className="animate-slide-in-left glass-card-enhanced hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-primary">
                     <MessageCircle className="h-6 w-6" />
@@ -139,7 +139,7 @@ export default function Contact() {
                     {contactInfo.map((info, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-4 p-4 rounded-lg glass-card hover:bg-white/10 transition-colors duration-200"
+                        className="flex items-center gap-4 p-4 rounded-lg glass-card-enhanced hover:bg-white/10 transition-colors duration-200 hover-lift"
                       >
                         <div className="p-2 bg-primary/10 rounded-lg">{info.icon}</div>
                         <div className="flex-1">
@@ -164,25 +164,25 @@ export default function Contact() {
               </Card>
 
               {/* Quick Actions */}
-              <Card className="animate-slide-in-left delay-200 glass-card">
+              <Card className="animate-slide-in-left delay-200 glass-card-enhanced hover-lift">
                 <CardHeader>
                   <CardTitle className="text-primary">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <Button className="w-full justify-start glass-card bg-transparent" variant="outline" asChild>
+                    <Button className="w-full justify-start glass-card-enhanced bg-transparent hover-lift" variant="outline" asChild>
                       <a href="mailto:ziademadbts@gmail.com?subject=Project Inquiry">
                         <Mail className="mr-2 h-4 w-4" />
                         Send Email Directly
                       </a>
                     </Button>
-                    <Button className="w-full justify-start glass-card bg-transparent" variant="outline" asChild>
+                    <Button className="w-full justify-start glass-card-enhanced bg-transparent hover-lift" variant="outline" asChild>
                       <a href="https://wa.me/201140462022" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="mr-2 h-4 w-4" />
                         Message on WhatsApp
                       </a>
                     </Button>
-                    <Button className="w-full justify-start glass-card bg-transparent" variant="outline" asChild>
+                    <Button className="w-full justify-start glass-card-enhanced bg-transparent hover-lift" variant="outline" asChild>
                       <a
                         href="https://www.linkedin.com/in/ziad-emad-allam-02153z"
                         target="_blank"
@@ -192,7 +192,7 @@ export default function Contact() {
                         Connect on LinkedIn
                       </a>
                     </Button>
-                    <Button className="w-full justify-start glass-card bg-transparent" variant="outline" asChild>
+                    <Button className="w-full justify-start glass-card-enhanced bg-transparent hover-lift" variant="outline" asChild>
                       <a href="https://github.com/ziademad02153" target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         View GitHub Profile
@@ -204,7 +204,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <Card className="animate-fade-in-up glass-card">
+            <Card className="animate-fade-in-up glass-card-enhanced hover-lift">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-primary">
                   <Send className="h-6 w-6" />
@@ -222,7 +222,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Your full name"
-                        className="glass-card"
+                        className="glass-card-enhanced hover-lift"
                         required
                       />
                     </div>
@@ -235,7 +235,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
-                        className="glass-card"
+                        className="glass-card-enhanced hover-lift"
                         required
                       />
                     </div>
@@ -249,7 +249,7 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       placeholder="What's this about?"
-                      className="glass-card"
+                      className="glass-card-enhanced hover-lift"
                       required
                     />
                   </div>
@@ -263,12 +263,12 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project or inquiry..."
                       rows={6}
-                      className="glass-card"
+                      className="glass-card-enhanced hover-lift"
                       required
                     />
                   </div>
 
-                  <Button type="submit" className="w-full glass-card" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full glass-card-enhanced hover-lift" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />

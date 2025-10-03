@@ -891,3 +891,207 @@
     opacity: 0.3;
   }
 }
+
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: transparent;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: transparent;
+  min-height: 100vh;
+  position: relative;
+  background-image: none;
+}
+
+/* Ensure the entire page has transparent background */
+#__next {
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+
+/* Make sure all sections have transparent background */
+section {
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure stars are visible */
+canvas {
+  z-index: -1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #000000 !important;
+}
+
+/* Ensure all containers have black background */
+.container {
+  background-color: transparent;
+}
+
+/* Ensure all divs have black background */
+div {
+  background-color: transparent;
+}
+
+/* Ensure all cards have transparent background */
+.card {
+  background-color: transparent;
+}
+
+/* Ensure all main elements have transparent background */
+main {
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+/* Ensure all articles have black background */
+article {
+  background-color: transparent;
+}
+
+/* Ensure all headers have black background */
+header {
+  background-color: transparent;
+}
+
+/* Ensure all footers have transparent background */
+footer {
+  background-color: transparent;
+}
+
+/* Glass cards should be transparent over black background */
+.glass-card-enhanced {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* GPU Acceleration for smooth scrolling */
+main {
+  will-change: scroll-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Professional Photo Frame Effects */
+
+/* Professional Glow Animation */
+@keyframes professional-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 
+                0 0 40px rgba(147, 51, 234, 0.2),
+                0 0 60px rgba(236, 72, 153, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 
+                0 0 60px rgba(147, 51, 234, 0.3),
+                0 0 90px rgba(236, 72, 153, 0.2);
+  }
+}
+
+.animate-professional-glow {
+  animation: professional-glow 3s ease-in-out infinite;
+}
+
+/* Professional Hover Effect */
+@keyframes professional-hover {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.animate-professional-hover {
+  animation: professional-hover 2s ease-in-out infinite;
+}
+
+/* Glow Effects */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+
+/* Gradient Text Animation - Slower */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #10b981, #f59e0b);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Simple Hover Effect */
+.hover-lift {
+  transition: all 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #2563eb, #7c3aed);
+}
+
+/* Optimized Animations */
