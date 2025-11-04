@@ -93,19 +93,21 @@ export default function Contact() {
       value: "Egypt",
       href: null,
     },
+    // GitHub row
     {
       icon: <Github className="h-5 w-5" />,
       label: "GitHub",
-      value: "ziademad02153",
-      href: "https://github.com/ziademad02153",
+      value: "github.com/ziademad02153/ziademad02153",
+      href: "https://github.com/ziademad02153/ziademad02153",
     },
+    // LinkedIn row
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
-      value: "ziad-emad-allam-02153z",
+      value: "linkedin.com/in/ziad-emad-allam-02153z",
       href: "https://www.linkedin.com/in/ziad-emad-allam-02153z",
     },
-  ]
+  ];
 
   return (
     <section id="contact" className="py-20 relative">
@@ -135,30 +137,41 @@ export default function Contact() {
                     to hear from you.
                   </p>
 
-                  <div className="space-y-4">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-4 p-4 rounded-lg glass-card-enhanced hover:bg-white/10 transition-colors duration-200 hover-lift"
-                      >
-                        <div className="p-2 bg-primary/10 rounded-lg">{info.icon}</div>
-                        <div className="flex-1">
-                          <div className="font-medium text-primary">{info.label}</div>
-                          {info.href ? (
-                            <a
-                              href={info.href}
-                              target={info.href.startsWith("http") ? "_blank" : undefined}
-                              rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <span className="text-muted-foreground">{info.value}</span>
-                          )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {contactInfo.map((info, index) => {
+                      const isSocial = info.label === "GitHub" || info.label === "LinkedIn";
+                      return (
+                        <div key={index} className={
+                          "flex items-center gap-4 p-5 rounded-xl shadow-md bg-white/5 border border-gray-800 hover:bg-primary/10 transition-all duration-200 " +
+                          (isSocial ? "hover:bg-gray-900 hover:text-white" : "hover:bg-white/20")
+                        }>
+                          <div className={
+                            "flex items-center justify-center w-12 h-12 rounded-full " +
+                            (isSocial ? "bg-gray-900 text-white" : "bg-primary/10 text-primary")
+                          }>
+                            {info.icon}
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-lg mb-1">{info.label}</div>
+                            {info.href ? (
+                              <a
+                                href={info.href}
+                                target={info.href.startsWith("http") ? "_blank" : undefined}
+                                rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                className={
+                                  "block text-base break-all font-mono underline hover:text-primary transition-colors duration-200 " +
+                                  (isSocial ? "text-white" : "text-primary")
+                                }
+                              >
+                                {info.value}
+                              </a>
+                            ) : (
+                              <span className="block text-base break-all font-mono text-muted-foreground">{info.value}</span>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </CardContent>
               </Card>
@@ -193,7 +206,7 @@ export default function Contact() {
                       </a>
                     </Button>
                     <Button className="w-full justify-start glass-card-enhanced bg-transparent hover-lift" variant="outline" asChild>
-                      <a href="https://github.com/ziademad02153" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/ziademad02153/ziademad02153" target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         View GitHub Profile
                       </a>

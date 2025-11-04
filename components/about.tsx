@@ -59,13 +59,25 @@ export default function About() {
               </div>
               <div className="flex items-center gap-3">
                 <Github className="h-5 w-5 text-blue-400" />
-                <a href="https://github.com/ziademad02153" target="_blank" rel="noopener noreferrer" className="text-white/80 font-inter hover:text-blue-400 transition-colors">
-                  github.com/ziademad02153
+                <a
+                  href="https://github.com/ziademad02153/ziademad02153"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 font-inter hover:text-blue-400 transition-colors"
+                  style={{ textDecoration: 'none' }}
+                >
+                  github.com/ziademad02153/ziademad02153
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Linkedin className="h-5 w-5 text-blue-400" />
-                <a href="https://www.linkedin.com/in/ziad-emad-allam-02153z" target="_blank" rel="noopener noreferrer" className="text-white/80 font-inter hover:text-blue-400 transition-colors">
+                <a
+                  href="https://www.linkedin.com/in/ziad-emad-allam-02153z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 font-inter hover:text-blue-400 transition-colors"
+                  style={{ textDecoration: 'none' }}
+                >
                   linkedin.com/in/ziad-emad-allam-02153z
                 </a>
               </div>

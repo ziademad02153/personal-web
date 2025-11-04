@@ -38,9 +38,10 @@ export default function AnimatedBackground() {
       opacity: number
     }
 
-    const stars: Star[] = []
-        const numStars = 300 // More stars for better effect
-    const maxDepth = 2000
+  const stars: Star[] = []
+  // Lowered number of stars for better performance on low-end devices
+  let numStars = 120
+  const maxDepth = 2000
 
     // Initialize stars
     for (let i = 0; i < numStars; i++) {
@@ -54,23 +55,35 @@ export default function AnimatedBackground() {
       })
     }
 
-    // Animation loop
+    // Animation loop with FPS limiting and visibility handling
     let animationId: number
     let lastTime = 0
-        const fps = 60
-        const frameDelay = 1000 / fps
-    
+    const targetFps = 30
+    const frameDelay = 1000 / targetFps
+
+    let isVisible = true
+    const onVisibilityChange = () => {
+      isVisible = !document.hidden
+      if (isVisible) {
+        lastTime = performance.now()
+        animationId = requestAnimationFrame(animate)
+      } else {
+        if (animationId) cancelAnimationFrame(animationId)
+      }
+    }
+
     const animate = (currentTime: number = 0) => {
+      if (!isVisible) return
       // Frame rate limiting for better performance
       if (currentTime - lastTime < frameDelay) {
         animationId = requestAnimationFrame(animate)
         return
       }
       lastTime = currentTime
-      
-          // Clear canvas with black background
-          ctx.fillStyle = "#000000"
-          ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+
+      // Clear canvas with black background
+      ctx.fillStyle = "#000000"
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
       // Update and draw stars
       stars.forEach((star) => {
@@ -129,11 +142,14 @@ export default function AnimatedBackground() {
       animationId = requestAnimationFrame(animate)
     }
 
-    animate()
+  // Start animation and listen for visibility changes to pause when not visible
+  animationId = requestAnimationFrame(animate)
+  document.addEventListener("visibilitychange", onVisibilityChange)
 
     return () => {
       window.removeEventListener("resize", setCanvasSize)
-      cancelAnimationFrame(animationId)
+      document.removeEventListener("visibilitychange", onVisibilityChange)
+      if (animationId) cancelAnimationFrame(animationId)
     }
   }, [])
 

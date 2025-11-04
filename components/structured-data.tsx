@@ -28,7 +28,7 @@ export default function StructuredData() {
       "name": "OpenQQuantify"
     },
     "sameAs": [
-      "https://github.com/ziademad02153",
+  "https://github.com/ziademad02153/ziademad02153",
       "https://www.linkedin.com/in/ziad-emad-allam-02153z"
     ],
     "email": "ziademadbts@gmail.com",
